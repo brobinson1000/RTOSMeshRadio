@@ -1,0 +1,14 @@
+# Build outputs
+/Debug/
+/Release/
+*.elf
+*.bin
+*.hex
+*.map
+*.list
+.settings/
+*.launch
+
+# macOS system files
+.DS_Store
+
