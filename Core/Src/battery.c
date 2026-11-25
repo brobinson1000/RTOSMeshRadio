@@ -10,16 +10,20 @@
 #include "app_queues.h"
 #include "battery.h"
 
-uint8_t Battery_get(void) {
+uint16_t Battery_get(void) {
 	// Retrieve battery once I get batter cell chip
-	uint8_t p = 0;
+	uint16_t p = 0;
 	return p;
 }
 
 static void Battery_task(void) {
 	for(;;) {
-		uint8_t battery_level = Battery_get();
-		xQueueSend(batt_queue, &battery_level, portMAX_DELAY);
+		ui_event_t ui_battery_event = {
+				.type = UI_EVT_BATTERY,
+				.evt_data.battery_percentage = Battery_get()
+		};
+
+		xQueueSend(ui_queue, &ui_battery_event, portMAX_DELAY);
 		vTaskDelay(pdMS_TO_TICKS(500));
 	}
 }

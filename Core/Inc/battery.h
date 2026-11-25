@@ -12,7 +12,7 @@
 
 
 
-uint8_t Battery_get(void);
+uint16_t Battery_get(void);
 
 bool ChargingStatus_get(void);
 
