@@ -10,8 +10,12 @@
 
 #include <stdbool.h>
 
+
+
 uint8_t Battery_get(void);
 
 bool ChargingStatus_get(void);
+
+static void Battery_task(void);
 
 #endif /* INC_BATTERY_H_ */
